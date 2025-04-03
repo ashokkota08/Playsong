@@ -10,8 +10,8 @@ public class SongSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String time;  // ✅ Stores the time of the song schedule
-    private String path;  // ✅ Stores the song file path
+    private String time;
+    private String path; 
 
     // Constructors
     public SongSchedule() {}

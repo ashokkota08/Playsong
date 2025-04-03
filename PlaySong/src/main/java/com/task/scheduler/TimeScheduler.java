@@ -31,28 +31,28 @@ public class TimeScheduler {
             String scheduledTime = song.getTime();
             String filePath = song.getPath();
 
-            System.out.println("🔍 Checking method: Current Time = " + currentTime + ", Scheduled Time = " + scheduledTime);
+            System.out.println(" Checking method: Current Time = " + currentTime + ", Scheduled Time = " + scheduledTime);
 
             if (currentTime.equals(scheduledTime)) {
-                System.out.println("✅ Scheduled time reached! Playing song...");
+                System.out.println(" Scheduled time reached! Playing song...");
                 
                 if (filePath == null || filePath.isEmpty()) {
-                    System.err.println("❌ No file path provided for the song.");
+                    System.err.println(" No file path provided for the song.");
                     return;
                 }
 
                 File file = new File(filePath);
                 if (!file.exists()) {
-                    System.err.println("❌ File not found: " + filePath);
+                    System.err.println(" File not found: " + filePath);
                     return;
                 }
 
-                new Thread(() -> playSong(filePath)).start(); // Run in a new thread
+                new Thread(() -> playSong(filePath)).start(); 
             } else {
-                System.out.println("⏳ Not yet time to play the song.");
+                System.out.println(" Not yet time to play the song.");
             }
         } else {
-            System.out.println("⚠️ No scheduled song found.");
+            System.out.println(" No scheduled song found.");
         }
     }
 
@@ -61,7 +61,7 @@ public class TimeScheduler {
             AdvancedPlayer player = new AdvancedPlayer(inputStream);
             player.play();
         } catch (Exception e) {
-            System.err.println("❌ Error playing the song: " + e.getMessage());
+            System.err.println(" Error playing the song: " + e.getMessage());
         }
     }
 }
